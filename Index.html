@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
+    <script src = "jquery-3.5.1.min.js"></script>
+    <script>
+
+        $(document).ready(function(){
+            var flag;
+        /**왼쪽 특수효과 애니메이션 **/
+
+            //맨 처음에 페이드 인
+            $("div.leftIntro").fadeTo(2000, 0.6);
+            $("p.leftIntro").fadeTo(2500, 1.0);
+            var flag = 0;
+            //클릭 이벤트 정의
+            $("#Spring").mouseenter(function(){ 
+                $("div.leftIntro").css({"background-color": "lightpink", "opacity": "0.0"});
+                $("img.leftimg").attr("src", './SpringKNU.png');
+                    $("div.leftIntro").fadeTo(2000,0.6);
+            });
+
+            $("#Summer").mouseenter(function(){
+                //파란 원에 마우스 대면
+                //css 성질(색이라 투명도) 바뀌고, 
+                $("div.leftIntro").css({"background-color": "#2B60DE", "opacity": "0.0"});
+                //사진도 바뀜
+                $("img.leftimg").attr("src", './SummerKNU.jpg');
+                //그걸로 페이드인
+                $("div.leftIntro").fadeTo(2000,0.6);
+            });
+            $("#Fall").mouseenter(function(){
+                $("div.leftIntro").css({"background-color": "#800517", "opacity": "0.0"});
+                $("img.leftimg").attr("src", './FallKNU.jpg');
+                $("div.leftIntro").fadeTo(2000,0.6);
+            });
+            $("#Winter").mouseenter(function(){
+                $("div.leftIntro").css({"background-color": "#EBDDE2", "opacity": "0.0"});
+                $("img.leftimg").attr("src", './WinterKNU.png');
+                $("div.leftIntro").fadeTo(2000,0.6);
+            });
+
+/*
+마우스 안누른 상태) enter->나가면 hidden
+마우스 다운된 상태 ) enter->나가도 visible
+*/
+            /*Menu1*/
+            /**마우스 클릭시 다른 애들 flag는 0, menu2의 flag는 1**/
+            $("#Menu1").mousedown( ()=>{
+            $("iframe").attr("src","Welcome.html");
+            
+            //flag update
+            $("#Menu1").attr("flag",'1');
+            $("#Menu2").attr("flag",'0');
+            $("#Menu3").attr("flag",'0');
+            $("#Menu4").attr("flag",'0');
+            
+            //이전에 flag가 1이였던거 대비 다른 애들 visible 속성 바꿔주기 
+            $("#Menu2 img").css('visibility','hidden');
+            $("#Menu3 img").css('visibility','hidden');
+            $("#Menu4 img").css('visibility','hidden');
+            });
+
+            /**마우스가 위에 있을 때**/
+           $("#Menu1").mouseenter(()=>{
+            $("#Menu1").css('cursor','pointer');
+            $("#Menu1 img").css('visibility','visible');      
+            });
+
+            /**마우스가 떠날때 ->선택된 상태면 visible, 아니면 hidden**/
+            $("#Menu1").mouseleave( () => {
+                if(flag = ($("#Menu1").attr("flag"))=='1')
+               //선택된 상태라면
+                    $("#Menu1 img").css('visibility','visible');
+                else
+                    $("#Menu1 img").css('visibility','hidden');
+            });
+
+            /*Menu2*/
+            /**마우스 클릭시 다른 애들 flag는 0, menu2의 flag는 1**/
+            $("#Menu2").mousedown( ()=>{
+            $("iframe").attr("src","Club.html");
+            
+            //flag update
+            $("#Menu2").attr("flag",'1');
+            $("#Menu1").attr("flag",'0');
+            $("#Menu3").attr("flag",'0');
+            $("#Menu4").attr("flag",'0');
+            
+            //이전에 flag가 1이였던거 대비 다른 애들 visible 속성 바꿔주기 
+            $("#Menu1 img").css('visibility','hidden');
+            $("#Menu3 img").css('visibility','hidden');
+            $("#Menu4 img").css('visibility','hidden');
+            });
+            
+            /**마우스가 위에 있을 때**/
+           $("#Menu2").mouseenter(()=>{
+            $("#Menu2").css('cursor','pointer');
+            $("#Menu2 img").css('visibility','visible');      
+            });
+
+            /**마우스가 떠날때 ->선택된 상태면 visible, 아니면 hidden**/
+            $("#Menu2").mouseleave( () => {
+                if(flag = ($("#Menu2").attr("flag"))=='1')
+               //선택된 상태라면
+                    $("#Menu2 img").css('visibility','visible');
+                else
+                    $("#Menu2 img").css('visibility','hidden');
+            });
+
+             /*Menu3*/
+            /**마우스 클릭시 다른 애들 flag는 0, menu2의 flag는 1**/
+            $("#Menu3").mousedown( ()=>{
+            $("iframe").attr("src","Event.html");
+            
+            //flag update
+            $("#Menu3").attr("flag",'1');
+            $("#Menu1").attr("flag",'0');
+            $("#Menu2").attr("flag",'0');
+            $("#Menu4").attr("flag",'0');
+            
+            //이전에 flag가 1이였던거 대비 다른 애들 visible 속성 바꿔주기 
+            $("#Menu1 img").css('visibility','hidden');
+            $("#Menu2 img").css('visibility','hidden');
+            $("#Menu4 img").css('visibility','hidden');
+            });
+            
+            /**마우스가 위에 있을 때**/
+           $("#Menu3").mouseenter(()=>{
+            $("#Menu3").css('cursor','pointer');
+            $("#Menu3 img").css('visibility','visible');      
+            });
+
+            /**마우스가 떠날때 ->선택된 상태면 visible, 아니면 hidden**/
+            $("#Menu3").mouseleave( () => {
+                if(flag = ($("#Menu3").attr("flag"))=='1')
+               //선택된 상태라면
+                    $("#Menu3 img").css('visibility','visible');
+                else
+                    $("#Menu3 img").css('visibility','hidden');
+            });
+
+             /*Menu4*/
+            /**마우스 클릭시 다른 애들 flag는 0, menu2의 flag는 1**/
+            $("#Menu4").mousedown( ()=>{
+            $("iframe").attr("src","Q&A.html");
+            
+            //flag update
+            $("#Menu4").attr("flag",'1');
+            $("#Menu1").attr("flag",'0');
+            $("#Menu2").attr("flag",'0');
+            $("#Menu3").attr("flag",'0');
+            
+            //이전에 flag가 1이였던거 대비 다른 애들 visible 속성 바꿔주기 
+            $("#Menu1 img").css('visibility','hidden');
+            $("#Menu3 img").css('visibility','hidden');
+            $("#Menu2 img").css('visibility','hidden');
+            });
+            
+            /**마우스가 위에 있을 때**/
+           $("#Menu4").mouseenter(()=>{
+            $("#Menu4").css('cursor','pointer');
+            $("#Menu4 img").css('visibility','visible');      
+            });
+
+            /**마우스가 떠날때 ->선택된 상태면 visible, 아니면 hidden**/
+            $("#Menu4").mouseleave( () => {
+                if(flag = ($("#Menu4").attr("flag"))=='1')
+               //선택된 상태라면
+                    $("#Menu4 img").css('visibility','visible');
+                else
+                    $("#Menu4 img").css('visibility','hidden');
+            });
+            
+        });
+        </script>
+    <title>경북대학교 컴퓨터학부</title>
+    <style>
+        @font-face {
+             font-family: 'Cafe24Danjunghae'; 
+             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Danjunghae.woff') 
+             format('woff');
+              font-weight: normal; 
+              font-style: normal; 
+              }
+        @font-face { 
+            font-family: 'ghanachoco'; 
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') 
+            format('woff'); 
+            font-weight: normal; 
+            font-style: normal; 
+            }
+            @font-face { font-family: 'GmarketSansMedium'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
+             format('woff'); 
+             font-weight: normal; 
+             font-style: normal;
+              }
+        #SubTitle {
+        font-style:oblique;
+         font-size: 28px;
+         padding-top:30px;
+         font-family:'Cafe24Danjunghae'; 
+         padding-left:40px;
+        }
+        #Title {
+         font-size: 40px;
+         font-family: 'ghanachoco';
+         text-align: center;
+         width:100%;
+        }
+
+        #Title p:hover
+        {
+            cursor:pointer;
+        }
+        #UnderTitle
+        {
+         font-size: 17px;
+         font-family:'Cafe24Danjunghae'; 
+       color:indigo;
+         text-align: center;
+         margin-right:50px;
+
+        }
+        div.leftdiv
+        {
+            float:left;
+            width:20%;
+            height:100%;
+            text-align:right;
+        }
+        div.rightdiv
+        {
+            float:left;
+            height:100%;
+            width:80%;
+        }
+        .leftimg
+        {
+            position:fixed;
+            left:0;
+            top:0;
+            width:20%;
+            height:100%;
+            z-index: 0;
+        }
+        div.leftIntro
+        {
+            position:fixed;
+            left:0;
+            top:0;
+            bottom:0;
+            width:20%;
+            height:100%;
+            background-color: lightpink;
+            opacity: 0.0;
+            z-index:1;
+            display:none;
+            
+        }
+        p.leftIntro
+        {
+            position:fixed;
+            left:12px;
+            width:18%;
+            height:auto;
+            z-index:2;
+            opacity: 0.0;
+            color:white;
+            font-size: 48px;
+            background-color:transparent;
+            font-family: 'Source Code Pro', monospace;
+            animation: showIntro 3s;
+            animation-fill-mode: forwards;
+        }
+        @keyframes showIntro {
+            from {
+
+                bottom:20px;
+            }
+            to{
+
+                bottom:70px;
+            }
+        }
+        div.ColorChange
+        {
+            position:fixed;
+            display: inline-block;
+            z-index:2;
+            border-radius: 10px;
+            background-color:  rgba(233, 70, 157, 0.89);
+            width:20px;
+            height:20px;
+            bottom:40px;
+            left:10px;
+        }
+        .UpperBar
+        {
+            width:100%;
+            height:50px;
+            margin-top:30px;
+            background-color:#56054f;
+        }
+        .Menu
+        {
+            width:25%;
+            height:100%;
+            color:ivory;
+            font-family:'GmarketSansMedium';
+            font-size: 25px;
+            float:left;
+            z-index:0;
+        }
+        .Menu div{
+            float:left; 
+            padding-top:10px;
+        }
+        .Menu img{ 
+            width:22px; 
+            height:auto; 
+            float:left; 
+            margin: 12px 4px 0px;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+<div style="width:100%; ">
+    <div class = "leftdiv">
+        <!--왼쪽 사이드는 사진-->
+        <img class = "leftimg" src = './SpringKNU.png'/ >
+        <div class = "leftIntro"></div>
+        <p class = "leftIntro">Hello,<br/>CSE&nbsp;<br/>World!
+            <script>
+                for(var i=0;i<4;i++)
+                {
+                    document.write('<div class = "ColorChange" id ="'); //+Spring+'"');
+                    switch(i)
+                        {
+                            case 0: document.write('Spring"');
+                                           break;
+                            case 1: document.write('Summer"');
+                                           break;
+                            case 2: document.write('Fall"');
+                                           break;
+                            case 3: document.write('Winter"');
+                                           break;
+                        }
+                    //id 입력 완료
+                    if(i)
+                    {
+                        //0이 아니면 속성 추가 변경
+                        switch(i)
+                        {
+                            case 1: document.write('style = "left:40px;background-color:#2B60DE;"');
+                                           break;
+                            case 2: document.write('style = "left:70px;background-color:#C35817"');
+                                           break;
+                            case 3: document.write('style = "left:100px;background-color:#FEFCFF"');
+                                           break;
+                        }
+                    }
+                    //끝
+                    document.write('></div>')
+
+                }
+
+            </script>
+
+        </p>
+        
+    </div>
+
+    <div class = "rightdiv">
+        <div id = "SubTitle">
+            경북대학교 IT대학
+        </div>
+        <script>
+            function titleClick()
+            {
+                location.reload(true);
+                location.href = location.href;
+                history.go(0);
+            }
+        </script>
+        <div id = "Title">
+        <p onClick = "titleClick()" style= "color:#E60000; display: inline-block;margin-bottom:7px;margin-top:0;">
+            컴퓨터학부 </p>
+        <p onClick = "titleClick()" style= "color:darkgray; display: inline-block;margin-bottom:7px;margin-top:0;">
+            이모저모</p>
+        <img src = 'HobanuStudy.jpg' style="width:auto;height:60px;vertical-align: middle;"/>
+        </div>
+       <div id = "UnderTitle"style = "font-style:italic;">컴학에 의한, 컴학을 위한, 컴학 전용 잡학 사전</div>
+      
+       <div class="UpperBar" id = "UpperBar">
+            <div class = "Menu" id = "Menu1"flag = "1">
+                <img id="MenuImage1" style = "padding-left:15px;margin-left: 30px;visibility: visible;"src = "smile.png" />
+                <div>WELCOME</div>
+                <img id="MenuImage1" src = "smile.png"  style = "visibility: visible;"/>
+            </div>
+            <div class = "Menu" id = "Menu2"flag ="0">
+                <img id="MenuImage2" style = "padding-left:55.5px;"src = "smile.png" />
+                <div>동아리</div>
+                <img id="MenuImage2" src = "smile.png"  />
+            </div>
+            <div class = "Menu"id = "Menu3"flag = "0">
+                <img id="MenuImage3" style = "padding-left:43px;"src = "smile.png" />
+                <div>컴학혜택</div>
+                <img id="MenuImage3" src = "smile.png"  />
+            </div>
+            <div class = "Menu"id = "Menu4"flag = "0">
+                <img id="MenuImage4" style = "padding-left:55.5px;"src = "smile.png" />
+                <div>Q&A</div>
+                <img id="MenuImage4" src = "smile.png"  />
+            </div>
+       </div style = "width:100%;height:100%;overflow-x:hidden;overflow-y:visible;">
+       <iframe id = "SelectedMenu" src = "Welcome.html" frameborder = "0"style = "width:100%;height:3200px;"scrolling="no"/>
+    </iframe>
+
+    </div>
+  
+</div>
+</body>
+</html>
